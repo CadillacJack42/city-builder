@@ -1,7 +1,20 @@
 // IMPORT MODULES under test here:
-// import { example } from '../example.js';
+
+import { createCountString } from "../utils.js";
+
 
 const test = QUnit.test;
+
+
+test('Should verify that function creates string with state values', (expect) => {
+    let expected = "You have changed Cities 4 times, visited the water 2 times, and moved 0 times";
+    let actual = createCountString(4, 2, 0);
+    expect.equal(expected, actual, "Should produce a string with the number 4, 2, and 0 respectively within")
+
+});
+
+
+
 
 test('time to test a function', (expect) => {
     //Arrange
