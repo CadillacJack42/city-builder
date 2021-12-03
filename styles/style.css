@@ -78,7 +78,7 @@ header img {
 p {
     margin: var(--gutter);
 }
-  
+
 footer {
     position: fixed;
     width: 100%;
@@ -88,4 +88,24 @@ footer {
     justify-content: flex-end;
     background-color: var(--color3);
     box-shadow: var(--shadow);
+}
+
+#dropdowns {
+    width: 100vw;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#images-div {
+    display: flex;
+}
+
+.images {
+    height: 25vh;
+    width: 25vw;
+    border: 1px solid black;
+}
+
+#slogan-div {
+    text-align: center;
 }
