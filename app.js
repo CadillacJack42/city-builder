@@ -41,35 +41,61 @@ btn.addEventListener('click', () => {
     displaySlogans();
 });
 
+window.addEventListener('load', () => {
+    document.getElementById('city-img').style.backgroundImage = `url('./assets/${city.value}.jpeg')`;
+    document.getElementById('water-img').style.backgroundImage = `url('./assets/${water.value}.jpeg')`;
+    document.getElementById('house-img').style.backgroundImage = `url('./assets/${house.value}.jpeg')`;
+    displayStats();
+});
+
 const handleClick = (e) => {
     state[e.target.id]++;
-    console.log(state);
     let where = document.getElementById(`${e.target.id}-img`);
     where.style.backgroundImage = `url('./assets/${e.target.value}.jpeg')`;
     displayStats();
-  // console.log(e);
 };
 
 const displayStats = () => {
     count.textContent = '';
     let p = document.createElement('p');
     p.textContent = createCountString(state.city, state.water, state.house);
+    p.style.color = 'white';
+    p.style.margin = '0';
+    p.style.marginTop = '10px';
     count.append(p);
 };
 
 const displaySlogans = () => {
     state.slogans.push(sloganInput.value);
-    console.log(state.slogans);
     sloganInput.value = '';
     list.textContent = '';
     for (const slogan of state.slogans) {
         let p = document.createElement('p');
+        p.classList.add('slogan');
         p.textContent = slogan;
-        list.append(p);
+        p.style.margin = '0';
+        p.style.fontFamily = 'cursive';
+        p.style.fontSize = 'larger';
+        p.style.color = 'white';
+        p.style.textShadow = `text-shadow: 
+        -1px 0 black,
+        1px 0 black,
+        0 1px black,
+        0 -1px black,
+        -2px 0 black,
+        2px 0 black,
+        0 2px black,
+        0 -2px black;`;
+        list.prepend(p);
     }
-    
 };
 
-
+//  Styles
 const enter = document.getElementById('slogan-headline');
 enter.style.margin = 0;
+enter.style.color = 'white';
+const dropdowns = document.getElementById('dropdowns');
+dropdowns.style.marginTop = '10px';
+const sloganDiv = document.getElementById('slogan-div');
+sloganDiv.style.marginTop = '0px';
+count.style.margin = '0';
